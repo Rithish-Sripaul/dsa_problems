@@ -25,20 +25,29 @@ def remove_duplicates(nums):
     # [1, _, 2, _, _, 3]
 
 # arr = [1, 1, 2, 2, 3, 3, 3, 3, 3, 4]
-arr = [1, 1, 2  ]
-print(remove_duplicates(arr))
+arr = [1, 1, 2 , 2, 2, 3]
+# print(remove_duplicates(arr))
 
 
 def remove_duplicates_2(arr):
   hash = {}
-  for i in range(len(nums)):
-    if nums[i] in hash:
-      if i != len(arr) - 1:
-        l = i + 1
-        while nums[l] == nums[i]:
-          nums[l] == "_"
-          l += 1
-          
+  l = 0
+  k = 0 # Number of original items
+  while l < len(arr):
+    if arr[l] in hash:
+      duplicate_ele = arr[l]
+      while l < len(arr) and arr[l] == duplicate_ele:
+        arr[l] = '_'
+        l += 1
+    else:
+      hash[arr[l]] = 1
+      arr[l], arr[k] = arr[k], arr[l]
+      k += 1
+      l += 1
+  return k  
+  # print(arr, k)
+
+remove_duplicates_2(arr)
 
 
 
