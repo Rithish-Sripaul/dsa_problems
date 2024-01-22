@@ -1,3 +1,9 @@
+# WORKED ANSWER
+def move_zeroes_leetcode(arr):
+  slow = 0
+  for fast in range
+
+
 def move_zeroes(arr):
   l = 0
   while l < len(arr):
