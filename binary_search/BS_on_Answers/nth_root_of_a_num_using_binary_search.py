@@ -15,4 +15,3 @@ def first_approach(n, m):
     return -1
 
 print(first_approach(3, 27))
-print(first_approach(10, 100))

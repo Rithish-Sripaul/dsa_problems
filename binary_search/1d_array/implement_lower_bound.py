@@ -11,8 +11,6 @@ def first_approach(nums, target):
             lower_bnd = middle
         else:
             low = middle + 1
-
-        
     return lower_bnd
 
 nums = [1, 2, 2, 3]

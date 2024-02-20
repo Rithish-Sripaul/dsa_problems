@@ -39,33 +39,31 @@ def optimal_approach(matrix):
     for i in range(n):
         for j in range(m):
             if matrix[i][j] == 0:
-                if i == 0 and j == 0:
-                    col0 = 0
-                    matrix[i][j] = 0
-                else:
-                    matrix[i][0] = 0
+                # marking the row
+                matrix[i][0] = 0
+
+                # marking the col
+                if j != 0:
                     matrix[0][j] = 0
+                else:
+                    col0 = 0
     # print(matrix, col0)
 
-    # Should replace the columns from 1 to n first
-    # then replace the rows
-    # and then replace the col0, if it is true
-    for j in range(1, m):
-        if matrix[0][j] == 0:
-            for i in range(n):
+    # Mark with 0 from (1, 1) to (n - 1, m - 1)
+    for i in range(1, n):
+        for j in range(1, m):
+            if matrix[i][0] == 0 or matrix[0][j] == 0:
                 matrix[i][j] = 0
-
-    for i in range(n):
-        if matrix[i][0] == 0:
-            matrix[i] = [0] * m
-
+    
+    # Mark with 0 for 1st col and 1st row
+    # ROW
+    if matrix[0][0] == 0:
+        matrix[0] = [0] * m
+    # COL
     if col0 == 0:
         for i in range(n):
             matrix[i][0] = 0
     
-    
-    
-    print(matrix)
 matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
 matrix1 = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
 optimal_approach(matrix)
