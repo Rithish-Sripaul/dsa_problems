@@ -1,19 +1,5 @@
-# 121 - Best time to buy and sell stocks
+n = int(input())
 
-def best_time_buy_stock(prices):
-  left, right = 0, 1
-  maxTillNow = 0
-
-  while right < len(prices):
-    if prices[left] < prices[right]:
-      maxTillNow = max(maxTillNow, prices[right] - prices[left])
-    else:
-      left = right
-
-    right += 1
-  
-  return maxTillNow
-
-
-prices = [7, 1, 5, 3, 6, 4]
-print(best_time_buy_stock(prices))
+for i in range(n):
+  nums = list(map(int, input().split()))
+  print(nums[0] - nums[1])
