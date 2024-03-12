@@ -9,7 +9,7 @@ def check(root):
 		return -1
 	return 1 + max(left, right)
 
-	return check(left, right) != -1
+return check(left, right) != -1
 
 # METHOD 2: (Slower O(N^2))
 def depth(root):

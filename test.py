@@ -20,5 +20,3 @@ for i in s:
       stack.append(i)
 
 print(int(stack[0]))
-
-print(s)
