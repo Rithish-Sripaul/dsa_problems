@@ -18,7 +18,6 @@ class binaryTree:
 
 		while i < len(nums):
 			node = q.pop(0)
-
 			if i < len(nums):
 				if nums[i] is not None:
 					node.left = Node(nums[i])
