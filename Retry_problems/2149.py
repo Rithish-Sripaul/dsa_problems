@@ -1,26 +1,20 @@
-def first_approach(nums):
-    ans = []
-    pos, neg = 0, 0
-    i = 0
-    while i < len(nums):
-        if i == 0:
-            if nums[pos] > 0:
-                ans.append(nums[pos])
-                i += 1
-            pos += 1
-        else:
-            if i % 2 == 1:
-                if nums[neg] < 0:
-                    ans.append(nums[neg])
-                    i += 1
-                neg += 1
-            else:
-                if nums[pos] > 0:
-                    ans.append(nums[pos])
-                    i += 1
-                pos += 1
-                
-    return ans
+def rearrrange(nums):
+  pos, neg, count = 0, 0, 0
+  ans = [0] * len(nums)
+
+  while count < len(nums):
+    if count % 2 == 0:
+      while nums[pos] < 0:
+        pos += 1
+      ans[count] = nums[pos]
+      pos += 1
+    else:
+      while nums[neg] >= 0:
+        neg += 1
+      ans[count] = nums[neg]
+      neg += 1
+    count += 1
+  return ans
 
 nums = [3, 1, -2, -5, 2, -4]
-print(first_approach(nums))
+print(rearrrange(nums))

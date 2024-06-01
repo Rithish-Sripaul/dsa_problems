@@ -9,6 +9,7 @@ def solution(mat):
 			if mat[i][j] == 0:
 				q.append((i, j))
 				visited.add((i, j))
+				
 	dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 	while q:
 		x, y = q.popleft()

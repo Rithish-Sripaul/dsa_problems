@@ -1,17 +1,12 @@
-def first_approach(prices):
+def time(prices):
+  low, high = 0, 1
+  maxProfit = 0
 
-    low, high = 0, 1
-    maxTillNow = 0
-    while low <= high and high < len(prices):
-        if prices[low] < prices[high]:
-            diffInPrice = prices[high] - prices[low]
-            maxTillNow = max(maxTillNow, diffInPrice)
-        else:
-            low = high
-        high += 1
-
-    return maxTillNow
-
-prices = [7, 1, 5, 3, 6, 4]
-prices1 = [4, 3, 2, 1]
-print(first_approach(prices1))
+  while high < len(prices):
+    if prices[low] < prices[high]:
+      diff = prices[high] - prices[low]
+      maxProfit = max(maxProfit, diff)
+    else:
+      low = high
+    high += 1
+  return maxProfit
