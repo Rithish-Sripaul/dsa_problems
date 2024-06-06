@@ -1,27 +1,33 @@
-def first_approach(nums, target):
-  upperBound = len(nums)
-  low, high = 0, len(nums) - 1
+def first_last_pos(nums, target):
 
-  while low <= high:
-    middle = (low + high) // 2
-    if nums[middle] > target:
-      upperBound = middle
-      high = middle - 1
-    else:
-      low = middle + 1
+  # First Position - floor
 
-  lowerBound = 0
   low, high = 0, len(nums) - 1
+  floor = len(nums)
 
   while low <= high:
     middle = (low + high) // 2
 
     if nums[middle] >= target:
-      lowerBound = middle
       high = middle - 1
+      floor = middle
     else:
       low = middle + 1
-    
-    if lowerBound == len(nums) or nums[lowerBound] != target:
-      return [-1, -1]
-  return [lowerBound, upperBound - 1]
+  
+  low, high, ceil = 0, len(nums) - 1, len(nums)
+  while low <= high:
+    middle = (low + high) // 2
+
+    if nums[middle] <= target:
+      low = middle + 1
+      ceil = middle
+    else:
+      high = middle - 1
+  
+  if floor == len(nums) or nums[floor] != target:
+    return [-1, -1]
+  return [floor, ceil]
+  
+nums = [5, 7, 7, 8, 8, 10]
+print(first_last_pos(nums, 19))
+print(first_last_pos([1, 2, 3], 1))

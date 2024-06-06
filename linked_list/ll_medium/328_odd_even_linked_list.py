@@ -7,11 +7,13 @@ def first_approach(head):
 
   while even and even.next:
     odd.next = even.next
-    even = odd.next
+    odd = odd.next
     even.next = odd.next
     even = even.next
   odd.next = eHead
   return head
+
+
 
   
 

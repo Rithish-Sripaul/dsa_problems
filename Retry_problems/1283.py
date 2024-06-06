@@ -1,16 +1,17 @@
+import math
 def find_smallest(nums, threshold):
   low, high = 1, max(nums)
 
-  ans = max(nums)
+  ans = 0
   while low <= high:
     middle = (low + high) // 2
 
     temp = 0.
     for i in nums:
-      temp += math.ceil(i, middle)
+      temp += math.ceil(i / middle)
 
     if temp <= threshold:
-      return ans
+      ans = middle
       high = middle - 1
     else:
       low = middle + 1
