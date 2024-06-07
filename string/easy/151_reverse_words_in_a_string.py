@@ -8,8 +8,6 @@ def first_approach(s):
     if s[high] == " " or high == len(s) - 1:
       
       temp_ans = []
-
-      
       temp = high
       
       while temp >= low:

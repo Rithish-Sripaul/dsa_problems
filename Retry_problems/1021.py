@@ -14,7 +14,7 @@ def remove_parantheses(s):
         stack = []
         temp, count = 0, 0
       else:
-        stack.append(i)
+        stack.append(igot)
   return "".join(ans)
 
 print(remove_parantheses("(()())(())"))

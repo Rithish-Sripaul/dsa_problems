@@ -34,7 +34,7 @@ strs1 = ["dog","racecar","car"]
 strs2 = ["ab", "a"]
 strs3 = [""]
 
-print(if_sorting_allowed(strs))
+print(first_approach(strs))
 print(if_sorting_allowed(strs1))
 print(if_sorting_allowed(strs2))
 print(if_sorting_allowed(strs3))
