@@ -1,16 +1,33 @@
-def find(index, sum_, path):
-	if sum_ > target:
+def combinationSum(index, s, path):
+	if index == len(candidates) or s > target:
+		if s == target:
+			res.append(path)
 		return
-
-	if sum_ == target:
+	
+	if s == target:
 		res.append(path)
-		return
+	for i in range(index, len(candidates)):
+		combinationSum(i, s +  candidates[i], path + [candidates[i]])
 
-	for i in range(len(candidates)):
-		find(i + 1, sum_ + candidates[i], path + [candidates[i]])
+def combinationSumStriver(index, s, path):
+	if index == len(candidates) or s > target:
+		if s == target:
+			ans = []
+			for i in path: ans.append(i)
+			res.append(ans)
+		return
+	
+	s += candidates[index]
+	path.append(candidates[index])
+ 
+	combinationSumStriver(index, s, path)
+
+	s -= candidates[index]
+	path.pop()
+	combinationSumStriver(index + 1, s, path)
 
 candidates = [2, 3, 6, 7]
 target = 7
 res = []
-find(0, 0, [])
+combinationSumStriver(0, 0, [])
 print(res)

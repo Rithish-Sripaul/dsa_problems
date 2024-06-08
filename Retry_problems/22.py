@@ -1,22 +1,18 @@
-def generate(left, right, n, s):
-	if len(s) == n*2:
-
+def generateParantheses(left, right, s):
+	if len(s) == 2 * n:
 		res.append(s)
-		return 
+		return
+
 
 	if left < n:
-		generate(left + 1, right, n, s + "(")
+		generateParantheses(left + 1, right, s + "(")
 	if right < left:
-		generate(left, right + 1, n, s + ")")
+		generateParantheses(left, right + 1, s + ")")
+		
 
-
-
+	 
 
 res = []
 n = 3
-generate(0, 0, n, "")
+generateParantheses(0, .0, "")
 print(res)
-
-
-
-	
