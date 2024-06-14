@@ -6,9 +6,10 @@ def find(nums):
     i = idx % len(nums)
     while stack and stack[-1] <= nums[i]:
       stack.pop()
-  
+    
     if stack:
       result[i] = stack[-1]
+
     else:
       result[i] = -1
     stack.append(nums[i])
