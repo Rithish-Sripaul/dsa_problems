@@ -63,8 +63,9 @@ def optimal_approach(matrix):
     if col0 == 0:
         for i in range(n):
             matrix[i][0] = 0
+    return matrix
     
 matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
 matrix1 = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
-optimal_approach(matrix)
+print(optimal_approach(matrix))
 optimal_approach(matrix1)

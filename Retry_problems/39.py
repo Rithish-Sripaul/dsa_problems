@@ -12,19 +12,21 @@ def combinationSum(index, s, path):
 def combinationSumStriver(index, s, path):
 	if index == len(candidates) or s > target:
 		if s == target:
-			ans = []
-			for i in path: ans.append(i)
-			res.append(ans)
+			print(path)
 		return
 	
+	# If the element is selected
 	s += candidates[index]
 	path.append(candidates[index])
- 
 	combinationSumStriver(index, s, path)
 
+	# If the element is not selected
 	s -= candidates[index]
 	path.pop()
 	combinationSumStriver(index + 1, s, path)
+
+
+
 
 candidates = [2, 3, 6, 7]
 target = 7

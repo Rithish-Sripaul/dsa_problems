@@ -1,13 +1,13 @@
 def maximum_subarray(nums):
-  result = nums[0]
-  sum_ = 0
+  result = sum(nums)
+  crntSum = 0
 
   for i in nums:
-    sum_ += i
-    if sum_ > result:
-      result = sum_
-    if sum_ < 0:
-      sum_ = 0
-  return max(result, sum_)
+    crntSum += i
+    if crntSum > result:
+      result = crntSum
+    if crntSum < 0:
+      crntSum = 0
+  return result
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 print(maximum_subarray(nums))

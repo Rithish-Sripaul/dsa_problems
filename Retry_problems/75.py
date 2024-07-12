@@ -1,14 +1,15 @@
 def sort_colors(nums):
-  left, mid, right = 0, 0, len(nums) - 1
-  
-  while mid <= right:
+  low, mid, high = 0, 0, len(nums) - 1
+
+  while mid <= high:
     if nums[mid] == 0:
-      nums[left], nums[mid] = nums[mid], nums[left]
-      left += 1
+      nums[mid], nums[low] = nums[low], nums[mid]
       mid += 1
+      low += 1
     elif nums[mid] == 2:
-      nums[right], nums[mid] = nums[mid], nums[right]
-      right -= 1
+      nums[mid], nums[high] = nums[high], nums[mid]
+
+      high -= 1
     else:
       mid += 1
   return nums

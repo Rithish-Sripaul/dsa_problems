@@ -10,4 +10,4 @@ def removeNthNodeFromEndOfList(head, n):
   while fast.next: slow, fast = slow.next, fast.next
 
   slow.next = slow.next.next
-  return head
+  return head 
