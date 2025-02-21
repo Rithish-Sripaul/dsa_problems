@@ -50,6 +50,24 @@ def remove_duplicates_2(arr):
 remove_duplicates_2(arr)
 
 
+def remove_duplicates_arr(nums):
+  k = 0 # Number of unique elements
+  l = 0
+  currEle = nums[0]
+  while l < len(nums):
+    # In case the element is repeating
+    if nums[k] == nums[l]:
+      l += 1
+    else:
+      k += 1
+      nums[k], nums[l] = nums[l], nums[k]
+      l += 1
+      # currEle = nums[l]
+
+  return nums
+
+print(remove_duplicates_arr([1, 1, 2]))
+print(remove_duplicates_arr([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
 
 
 
