@@ -1,11 +1,11 @@
-def containsDuplicate(nums):
+def containsDuplicates(nums):
+  hash = {}
 
-    hash_ = {}
+  for num in nums:
+    if hash.get(num, False):
+      return False
+    else:
+      hash[num] = 1
+  return True
 
-    for i in nums:
-        if i in hash_:
-            return True
-        else:
-            hash_[i] = 1
 
-    return False
