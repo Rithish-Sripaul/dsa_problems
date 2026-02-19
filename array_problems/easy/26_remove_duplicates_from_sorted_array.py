@@ -1,3 +1,30 @@
+# OPTIMAL METHOD - 0MS, (Feb 18, 2026)
+"""
+Docstring for array_problems.easy.26_remove_duplicates_from_sorted_array
+
+Simply iterate through the array, maintain value of the current element.
+and also maintain the count of number of unique elements
+if the new element is different from the current element, replace the position of nums[curent_pos_of_unique_elements] with the new elmenet
+return curent_pos_of_unique_elements
+"""
+
+def optimal_solution(nums):
+  if len(nums) == 1:
+    return 1
+  current_ele, current_pos = nums[0], 1
+  count = 1
+  for i in range(1, len(nums)):
+    if nums[i] != current_ele:
+      nums[current_pos] = nums[i]
+      current_ele = nums[i]
+      current_pos += 1
+      
+  
+  return current_pos
+
+
+# ------------------------------------
+
 # METHOD 1 - TIME LIMITED EXCEEDED
 def remove_duplicates(nums):
   hash = {}

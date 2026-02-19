@@ -1,5 +1,3 @@
-# Check if Array Is Sorted and Rotated
-
 """
 Docstring for array_problems.revision.easy.1752_check_if_array_sorted_rotated
 We need to find how many times the ascending order is broken.
@@ -8,7 +6,7 @@ If count <= 1; then it is True
 else; False
 """
 
-# SOLVED ON Feb 18, 2026
+
 def optimal_solution(nums):
   count = 0
   if len(nums) == 1:
