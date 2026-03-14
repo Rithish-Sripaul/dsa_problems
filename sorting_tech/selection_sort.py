@@ -1,18 +1,45 @@
-def selection_sort(arr):
-  l = 0
+def selection_sort(nums):
+
+  for ind in range(len(nums)):
+    for i in range(ind + 1, len(nums)):
+      if nums[i] < nums[ind]:
+        nums[i], nums[ind] = nums[ind], nums[i]
   
-  while l < len(arr):
-    min_ele = arr[l]
-    min_ele_ind = l
+  return nums
 
-    for r in range(l, len(arr)):
-      if arr[r] < min_ele:
-        min_ele = arr[r]
-        min_ele_ind = r
 
-    arr[l], arr[min_ele_ind] = arr[min_ele_ind], arr[l]
-    l += 1
-  return arr
+def selection_sort_desc(nums):
 
-arr = [4, 3, 2,23, 1, 10]
-print(selection_sort(arr))
+  for ind in range(len(nums)):
+    for i in range(ind + 1, len(nums)):
+      if nums[i] > nums[ind]:
+        nums[i], nums[ind] = nums[ind], nums[i]
+  return nums
+
+def selection_sort_largest(nums):
+  for ind in range(len(nums) - 1, -1, -1):
+    for i in range(len(nums) - 1, ind - 1, -1):
+      if nums[i] < nums[ind]:
+        nums[i], nums[ind] = nums[ind], nums[i]
+  return nums
+
+def selection_sort_largest_desc(nums):
+  for ind in range(len(nums) - 1, -1, -1):
+    for i in range(len(nums) - 1, ind - 1, -1):
+      if nums[i] > nums[ind]:
+        nums[i], nums[ind] = nums[ind], nums[i]
+  return nums
+
+  
+nums = [-2, 45, 0, 11, -9, 88, -97, -202, 747]
+selection_sort(nums)
+print(nums)
+
+selection_sort_desc(nums)
+print(nums)
+
+selection_sort_largest(nums)
+print(nums)
+
+selection_sort_largest_desc(nums)
+print(nums)
