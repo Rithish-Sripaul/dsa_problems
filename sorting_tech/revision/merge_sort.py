@@ -1,19 +1,19 @@
-def merge(left, mid, right, nums):
-  n1 = mid - left + 1
-  n2 = right - mid
+def merge(low, mid, high, nums):
+  n1 = mid - low + 1
+  n2 = high - mid
 
   L = [0] * n1
   R = [0] * n2
 
   for i in range(n1):
-    L[i] = nums[left + i]
+    L[i] = nums[low + i]
   for j in range(n2):
-    R[j] = nums[mid + 1 + j]
-  
-  i, j = 0, 0
-  k = left
+    R[j] = nums[mid + j + 1]
 
-  while i < n1 and j < n2: 
+  i, j = 0, 0
+  k = low
+
+  while i < n1 and j < n2:
     if L[i] <= R[j]:
       nums[k] = L[i]
       i += 1
@@ -24,28 +24,23 @@ def merge(left, mid, right, nums):
   
   while i < n1:
     nums[k] = L[i]
-    i += 1
     k += 1
-
+    i += 1
+  
   while j < n2:
     nums[k] = R[j]
-    j += 1
     k += 1
+    j += 1
 
+def merge_sort(low, high, nums):
+  if low < high:
+    mid = (low + high) // 2
 
-def merge_sort(left, right, nums):
-  if left < right:
-    mid = (left + right) // 2
+    merge_sort(low, mid, nums)
+    merge_sort(mid + 1, high, nums)
+    merge(low, mid, high, nums)
 
-    merge_sort(left, mid, nums)
-    merge_sort(mid + 1, right, nums)
-    merge(left, mid, right, nums)
-
-
-nums = [3, 2, 1, 0, 100, 50]
+nums = [3, 2, 1, 0, 4, 5]
 merge_sort(0, len(nums) - 1, nums)
 print(nums)
-
-
-
-    
+  
